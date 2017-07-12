@@ -1,0 +1,15 @@
+<div class='small-centered columns'>
+  <h1>All Questions</h1>
+</div>
+
+<% @questions.each do |question| %>
+
+<div class="column">
+   <div class="card">
+     <div class="card-section">
+       <h3><%= link_to question.title, question_answers_path(question) %></h3>
+     </div>
+   </div>
+ </div>
+
+<% end %>

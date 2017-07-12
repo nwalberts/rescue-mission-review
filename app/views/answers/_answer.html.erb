@@ -1,0 +1,15 @@
+<% if answer.best %>
+  <div class="answer card best">
+<% else %>
+  <div class="answer card">
+<% end %>
+
+  <div class="card-section">
+    <p>
+      <%= markdown(answer.description) %>
+    </p>
+  </div>
+  <div class="card-section">
+    <%= button_to "Best Answer", answer_path(answer), method: :put %>
+  </div>
+</div>

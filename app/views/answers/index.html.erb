@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-divider">
+    <h1 class='question_title' > <%= @question.title %></h1>
+  </div>
+  <div class="card-section">
+    <%= markdown(@question.description) %>
+  </div>
+  <div class="card-section">
+    <%= button_to "Edit Question", edit_question_path(@question), method: :get, class: 'success button' %>
+    <%= button_to "Delete Question", @question, method: :delete, class: 'alert button' %>
+  </div>
+</div>
+
+
+
+<%= render partial: "answer", collection: @answers %>
+
+<%= form_for [@question, @answer] do |f| %>
+
+  <%= f.text_area :description, placeholder: "Your Answer Here", size: "20x6" %>
+  <%= f.submit "Post Answer", class: 'button' %>
+
+<% end %>

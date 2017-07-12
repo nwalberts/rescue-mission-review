@@ -1,0 +1,8 @@
+<u><strong>New Answer for <%= @question.title %></strong></u>
+</br>
+</br>
+<%= form_for [@question,@answer] do |f| %>
+  <%= f.label :description, 'Answer this question:' %>
+  <%= f.text_field :description %>
+  <%= f.submit 'submit'%>
+<% end %>

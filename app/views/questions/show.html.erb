@@ -1,0 +1,56 @@
+<h2>Question Details</h2>
+
+<div class="card-divider">
+  <strong>Question:</strong>
+  <%= @question.title %>
+</div>
+
+<div class="card-section">
+  <strong>Details:</strong>
+  <%= @question.description %>
+</div>
+
+<div class="card-section">
+  <%= link_to 'Edit Question', edit_question_path(@question) %> |
+  <%= link_to 'Delete Question', question_path(@question), method: :delete %>
+</div>
+
+<div class="card-section">
+
+  <%= render "./answers/form" %>
+<div class="card-section">
+
+
+<h3>Possible Answers</h3>
+<% @answers.reverse.each do |answer| %>
+<li><%= answer.description%></li>
+<% end %>
+
+--------------------------------------
+</br>
+
+</br>
+</br>
+</br>
+
+
+<div class="card">
+  <div class="card-divider">
+    <h1 class='question_title' > <%= @question.title %></h1>
+  </div>
+  <div class="card-section">
+    <%= @question.description %>
+  </div>
+  <div class="card-section">
+    <%= button_to "Edit Question", edit_question_path(@question), method: :get, class: 'success button' %>
+    <%= button_to "Delete Question", @question, method: :delete, class: 'alert button' %>
+  </div>
+</div>
+
+
+<%= form_for [@question, @answer] do |f| %>
+
+  <%= f.text_area :description, placeholder: "Your Answer Here", size: "20x6" %>
+  <%= f.submit "Post Answer", class: 'button' %>
+
+<% end %>
